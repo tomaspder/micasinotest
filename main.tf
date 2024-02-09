@@ -1,13 +1,13 @@
 provider "google" {
   credentials = file("/Users/tominaked/Desktop/micasinotest/ultra-concord-413810-ddfeffef90cb.json")
   project     = "ultra-concord-413810"
-  region      = "europe-west4-a"
+  region      = "europe-west4"
 }
 
 resource "google_sql_database_instance" "micasinodb" {
   name             = "micasinodb"
   database_version = "POSTGRES_15"
-  region           = "europe-west4-a"
+  region           = "europe-west4"
   
   settings {
     tier             = "db-f1-micro"
@@ -30,7 +30,7 @@ resource "google_compute_instance" "micasino_vm" {
 
   boot_disk {
     initialize_params {
-      image = "your-image"
+      image = "ubuntu-2004-lts"
     }
   }
 
