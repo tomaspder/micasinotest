@@ -52,5 +52,5 @@ resource "google_compute_subnetwork" "micasino_subnet" {
   name          = "micasino-subnet"
   ip_cidr_range = "10.0.1.0/24"
   network       = google_compute_network.micasino_network.self_link
-  region        = "europe-west4-a"
+  region        = "europe-west4"
 }
