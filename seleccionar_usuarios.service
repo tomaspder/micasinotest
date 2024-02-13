@@ -1,0 +1,19 @@
+#
+#Simple servicio que selecciona 3 usuarios random -> /etc/systemd/system/seleccionar_usuarios.service
+#Para activar el servicio: sudo systemctl start seleccionar_usuarios
+#Para ver el resutlado: sudo systemctl status seleccionar_usuarios
+
+[Unit]
+Description=Seleccionar Usuarios
+After=postgresql.service
+
+[Service]
+ExecStartPre=sleep 5m
+ExecStart=/usr/bin/python3 /root/scripts/seleccionar_usuarios.py >> /var/log/seleccionar_usuarios.log 2>&1
+User=root
+Group=root
+WorkingDirectory=/root/scripts/
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
